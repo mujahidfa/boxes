@@ -15,11 +15,17 @@
         {{ button }}
       </button>
     </div>
+    <Boxes :quantity="numberOfButtons" />
   </div>
 </template>
 
 <script>
+import Boxes from '~/components/Boxes.vue'
+
 export default {
+  components: {
+    Boxes
+  },
   data() {
     return {
       numberOfButtons: 5,
