@@ -1,16 +1,22 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="inline">Enter number of buttons:</h1>
+      <h1 class="inline">
+        Enter number of buttons:
+      </h1>
       <input v-model.number="numberOfButtons" class="inline" type="number" />
       <h1>Clicked button # {{ clickedButton }}</h1>
     </div>
 
-    <div v-for="button in buttonArray" class="inline-block">
+    <div
+      v-for="(button, index) in buttonArray"
+      :key="index"
+      class="inline-block"
+    >
       <button
         :ref="'buttonRef' + button"
-        v-on:click="getButtonId(button)"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold h-20 w-20 rounded outline-none m-6"
+        class="w-20 h-20 m-6 font-bold text-white bg-blue-500 rounded outline-none hover:bg-blue-700"
+        @click="getButtonId(button)"
       >
         {{ button }}
       </button>
@@ -51,7 +57,7 @@ export default {
 
 <style>
 .container {
-  @apply min-h-screen justify-center items-center text-center mx-2;
+  @apply min-h-screen justify-center items-center bg-gray-100 text-center mx-2;
 }
 
 /* .container {

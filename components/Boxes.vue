@@ -1,8 +1,9 @@
 <template>
   <div>
     <button
-      v-for="box in quantity"
-      class="bg-green-500 hover:bg-green-700 text-white font-bold h-20 w-20 rounded outline-none m-6"
+      v-for="(box, index) in quantity"
+      :key="index"
+      class="w-20 h-20 m-6 font-bold text-white bg-green-500 rounded outline-none hover:bg-green-700"
     >
       {{ box }}
     </button>
@@ -19,5 +20,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
